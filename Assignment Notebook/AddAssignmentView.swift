@@ -35,6 +35,7 @@ struct AddAssignmentView: View {
                     })
             }
         }
+        .preferredColorScheme(.dark)
     }
 }
 

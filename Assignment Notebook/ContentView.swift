@@ -17,11 +17,19 @@ struct ContentView: View {
                     HStack {
                         VStack(alignment: .leading) {
                             Text(item.course)
-                                .font(.headline)
+                                .font(.largeTitle)
+                                .background(Color.blue)
+                                .padding()
+                                .background(Color.blue)
                             Text(item.description)
+                                .font(.headline)
                         }
                         Spacer()
                         Text(item.dueDate, style: .date)
+                            .font(.headline)
+                            .background(Color.green)
+                            .padding()
+                            .background(Color.green)
                     }
                 }
                 .onMove(perform: { indices, newOffset in
@@ -35,12 +43,10 @@ struct ContentView: View {
                 AddAssignmentView(assignmentList: assignmentList)
             })
             .navigationBarTitle("Assignment Notebook", displayMode: .inline)
-            .navigationBarItems(leading: EditButton(),
-                                trailing: Button(action: {
-                                                    showingAddAssignmentView = true}) {
-                                    Image(systemName: "plus")
-                                })
+            .navigationBarItems(leading: EditButton(), trailing: Button(action: { showingAddAssignmentView = true}) { Image(systemName: "plus")
+            })
         }
+        .preferredColorScheme(.dark)
     }
 }
 
